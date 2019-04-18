@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SchoolDetect</string>
+
+    <string name="home">Home</string>
+    <string name="account">Account</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="login1">Login</string>
+
+
+
+
+
+    <string name="welcome">WelCome</string>
+
+
+
+
+</resources>
