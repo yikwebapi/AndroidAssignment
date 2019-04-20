@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Control" />
+        <activity android:name=".Search" />
+        <activity android:name=".SearchDetail" />
+        <activity android:name=".Insert" />
     </application>
 
 </manifest>

@@ -31,7 +31,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="yikyik"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -50,14 +49,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/add" />
+            app:srcCompat="@drawable/add"
+            android:onClick="add"/>
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/search" />
+            app:srcCompat="@drawable/search"
+            android:onClick="search"/>
     </LinearLayout>
 
     <LinearLayout
@@ -75,14 +76,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Insert"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Search"
+            android:gravity="center"
+            android:textSize="20sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -100,14 +106,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/map" />
+            app:srcCompat="@drawable/map"
+            android:onClick="map"/>
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/log" />
+            app:srcCompat="@drawable/log"
+            android:onClick="log"/>
     </LinearLayout>
 
     <LinearLayout
@@ -125,14 +133,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Location"
+            android:gravity="center"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Log"
+            android:gravity="center"
+            android:textSize="20sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -150,14 +162,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/rank" />
+            app:srcCompat="@drawable/rank"
+            android:onClick="rank"/>
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/logout" />
+            app:srcCompat="@drawable/logout"
+            android:onClick="logout"/>
     </LinearLayout>
 
     <LinearLayout
@@ -175,14 +189,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Rank"
+            android:gravity="center"
+            android:textSize="20sp"
+            />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Logout"
+            android:gravity="center"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 

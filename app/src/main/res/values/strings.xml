@@ -12,6 +12,34 @@
 
 
     <string name="welcome">WelCome</string>
+    <string name="Insert">Insert School</string>
+    <string name="Search">Search Schhol</string>
+    <string name="Location">Search By Map</string>
+    <string name="Log">View Log</string>
+    <string name="Rank">View rank</string>
+    <string name="Logout">Logout</string>
+
+
+   <string name="searchA">Search</string>
+
+
+
+
+    <string name = "dname">Name</string>
+    <string name="daddress">Address</string>
+    <string name="dmark">Mark</string>
+    <string name="denter">Enter</string>
+
+
+
+    <string name="iename">School English Name</string>
+    <string name="icname">School Chinese Name</string>
+    <string name="ieaddress">School English Address</string>
+    <string name="icaddress">School Chinese Address</string>
+    <string name="X">latitude</string>
+    <string name="Y">longitude</string>
+    <string name="ibutton">Insert</string>
+    <string name="itype">Type</string>
 
 
 
