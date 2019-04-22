@@ -1,5 +1,8 @@
 package com.example.schooldetect;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,8 +16,11 @@ import android.widget.Toast;
 import com.example.schooldetect.jsonData.JsonDataGetter;
 import com.example.schooldetect.jsonData.DownloadImage;
 import com.example.schooldetect.jsonData.JsontoData;
+import com.example.schooldetect.jsonData.LanguageDefiner;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 public class SearchDetail extends AppCompatActivity {
@@ -34,6 +40,13 @@ public class SearchDetail extends AppCompatActivity {
     String imagepath = "";
 String ac = "";
 String id = "";
+    LanguageDefiner ld;
+    SharedPreferences sharedpreferences;
+    String mypreference = "mypref";
+
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchdetail);
@@ -42,8 +55,12 @@ String id = "";
         ac =getIntent().getStringExtra("ac");
         sdd = db.getSchoolbyId(id);
         q = q + sdd.getcname();
-
+        ld = new LanguageDefiner();
         String url = path + key + "&" + cx + "&" + searchType + "&" +q;
+        savelogrecord(id);
+
+
+
 
         JsonDataGetter jdg = new JsonDataGetter(SearchDetail.this,url);
 
@@ -66,12 +83,15 @@ String id = "";
         tv6 = (TextView)findViewById(R.id.textView6);
         tv9 = (TextView)findViewById(R.id.textView9);
         tv15 = (TextView)findViewById(R.id.textView15);
-
-        tv6.setText(sdd.getcname());
-        tv9.setText(sdd.getcaddress());
-        tv15.setText(sdd.getmark().toString());
-
-
+        if (ld.definelanguage() == "eng") {
+            tv6.setText(sdd.getename());
+            tv9.setText(sdd.geteaddress());
+            tv15.setText(sdd.getmark().toString());
+        } else {
+            tv6.setText(sdd.getcname());
+            tv9.setText(sdd.getcaddress());
+            tv15.setText(sdd.getmark().toString());
+        }
 
             //invisible if have marked
             bt4 = (Button)findViewById(R.id.button4);
@@ -104,6 +124,25 @@ String id = "";
 
 
 
+
+    public void savelogrecord(String sid) {
+        Set<String> sidarray = new HashSet<String>();
+        sharedpreferences = getSharedPreferences(mypreference,
+                Context.MODE_PRIVATE);
+        if (sharedpreferences.contains("scdetail")) {
+            sidarray = sharedpreferences.getStringSet("scdetail",new HashSet<String>());
+            sidarray.add(sid);
+            sharedpreferences.edit().remove("scdetail").commit();
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putStringSet("scdetail", sidarray);
+            editor.commit();
+        } else {
+            sidarray.add(sid);
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putStringSet("scdetail", sidarray);
+            editor.commit();
+        }
+    }
 
 
 

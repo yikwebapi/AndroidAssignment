@@ -29,13 +29,20 @@ public class Control extends AppCompatActivity {
         startActivity(i);
     }
     public void map(View v) {
+        Intent i = new Intent(this, Map.class);
+        i.putExtra("ac",ac);
+        startActivity(i);
 
     }
     public void rank (View v) {
-
+        Intent i = new Intent(this, Rank.class);
+        i.putExtra("ac",ac);
+        startActivity(i);
     }
     public void log(View v ) {
-
+        Intent i = new Intent(this, logDetail.class);
+        i.putExtra("ac",ac);
+        startActivity(i);
     }
     public void logout(View v) {
         getSharedPreferences(mypreference, 0).edit().clear().commit();
@@ -43,6 +50,12 @@ public class Control extends AppCompatActivity {
         startActivity(i);
 
         finish();
+    }
+
+    public void soundcontrol(View v) {
+        Intent i = new Intent(this, mapsound.class);
+        i.putExtra("ac",ac);
+        startActivity(i);
     }
 
 }

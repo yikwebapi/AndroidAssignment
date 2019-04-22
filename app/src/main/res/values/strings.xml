@@ -8,9 +8,6 @@
     <string name="login1">Login</string>
 
 
-
-
-
     <string name="welcome">WelCome</string>
     <string name="Insert">Insert School</string>
     <string name="Search">Search Schhol</string>
@@ -20,16 +17,13 @@
     <string name="Logout">Logout</string>
 
 
-   <string name="searchA">Search</string>
+    <string name="searchA">Search</string>
 
 
-
-
-    <string name = "dname">Name</string>
+    <string name="dname">Name</string>
     <string name="daddress">Address</string>
     <string name="dmark">Mark</string>
     <string name="denter">Enter</string>
-
 
 
     <string name="iename">School English Name</string>
@@ -42,6 +36,11 @@
     <string name="itype">Type</string>
 
 
+    <string name='ldetail'>Visited School Log History</string>
 
 
+    <string name='renter'>Enter</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="testingonly123">Map And Sound Control</string>
 </resources>

@@ -13,6 +13,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -402,6 +411,134 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
+
+
+    public ArrayList getSchoolbyid1(Set sid, String language) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        ArrayList a = new ArrayList();
+        Iterator value = sid.iterator();
+        while (value.hasNext()) {
+            String id = value.next().toString();
+            Cursor c = sqLiteDatabase.rawQuery("Select * From School Where sid = "+id, null);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    do {
+                       if (language.equals("eng")) {
+                                a.add(c.getString(3));
+                       } else {
+                           a.add(c.getString(2));
+                       }
+                    } while (c.moveToNext());
+                }
+            }
+        }
+
+        sqLiteDatabase.close();
+        return a;
+    }
+
+
+    public ArrayList getSchoolbyid2(ArrayList sid, String language) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        ArrayList a = new ArrayList();
+        for (int i =0; i < sid.size(); i++) {
+            String id = sid.get(i).toString();
+            Cursor c = sqLiteDatabase.rawQuery("Select * From School Where sid = " + id, null);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    do {
+                        if (language.equals("eng")) {
+                            a.add(c.getString(3));
+                        } else {
+                            a.add(c.getString(2));
+                        }
+                    } while (c.moveToNext());
+                }
+            }
+        }
+
+        sqLiteDatabase.close();
+        return a;
+    }
+
+    public HashMap<String,Double> SchoolRank() {
+        HashMap<String,Double> hm = new HashMap<String,Double>();
+        HashMap<String,Integer> hm1 = new HashMap<String,Integer>(); //average mark
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor c = sqLiteDatabase.rawQuery("Select * From Mark", null);
+        if (c != null) {
+            if (c.moveToFirst()) {
+                do {
+                    String sid = c.getInt(0) + "";
+                    double mark = c.getInt(2);
+                    if (hm.containsKey(sid)) {
+                        double ttlmark = hm.get(sid) + mark;
+                        int counter = hm1.get(sid) + 1;
+                        hm.put(sid,ttlmark);
+                        hm1.put(sid,counter);
+                    } else {
+                        hm.put(sid,mark);
+                        hm1.put(sid,1);
+                    }
+                } while (c.moveToNext());
+            }
+        }
+        for (String key : hm.keySet()) {
+            double ttl = hm.get(key);
+            double counter = hm1.get(key);
+            double average = ttl/counter;
+            hm.put(key,average);
+        }
+        HashMap<String,Double> hm3 = sortByValues(hm);
+        return hm3;
+    }
+
+
+    private static HashMap sortByValues(HashMap map) {
+        List list = new LinkedList(map.entrySet());
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                return ((Comparable) ((Map.Entry) (o2)).getValue())
+                        .compareTo(((Map.Entry) (o1)).getValue());
+            }
+        });
+
+        HashMap sortedHashMap = new LinkedHashMap();
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            Map.Entry entry = (Map.Entry) it.next();
+            sortedHashMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedHashMap;
+    }
+
+
+
+
+
+    public ArrayList getSchoolByMap(String type) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor c = sqLiteDatabase.rawQuery("Select * From Type Where etype = '"+type+"' OR ctype = '" + type + "'", null);
+        int id = 1;
+        ArrayList a = new ArrayList();
+        if (c != null) {
+            if (c.moveToFirst()) {
+                do {
+                    id = c.getInt(0);
+                } while (c.moveToNext());
+            }
+        }
+
+        Cursor c4 = sqLiteDatabase.rawQuery("Select * From School Where tid =" + id , null);
+        if (c4 != null) {
+            if (c4.moveToFirst()) {
+                do {
+                    a.add(c4.getInt(0) + "@" + c4.getString(4) + "@" + c4.getString(5));
+                } while (c4.moveToNext());
+            }
+        }
+        sqLiteDatabase.close();
+        return a;
+    }
 
 
 }

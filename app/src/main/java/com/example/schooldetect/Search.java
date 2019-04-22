@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.database.Cursor;
 
+import com.example.schooldetect.jsonData.LanguageDefiner;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,6 +22,7 @@ public class Search extends AppCompatActivity {
     ListView listView;
     Spinner spinner;
     String ac;
+    LanguageDefiner ld;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
@@ -27,8 +30,10 @@ public class Search extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listView);
          spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
-        ArrayList a = db.getType("eng");
+        ld = new LanguageDefiner();
+        ArrayList a = db.getType(ld.definelanguage());
         ac = getIntent().getStringExtra("ac");
+
         for (int i = 0; i < a.size(); i++) {
             adapter.add(a.get(i).toString());
         }
@@ -43,12 +48,16 @@ public class Search extends AppCompatActivity {
             String id = a.get(i).toString().split("@")[0];
             String cname = a.get(i).toString().split("@")[1];
             String ename = a.get(i).toString().split("@")[2];
-            adapter.add(cname);
+            if (ld.definelanguage() == "eng"){
+                adapter.add(ename);
+            } else {
+                adapter.add(cname);
+            }
         }
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView arg0, View arg1, int arg2, long arg3) {
-            String data =  a.get((int)arg3).toString().split("@")[0];
+                String data =  a.get((int)arg3).toString().split("@")[0];
                 Intent i = new Intent(arg0.getContext(), SearchDetail.class);
                 i.putExtra("schoolid",data);
                 i.putExtra("ac",ac);

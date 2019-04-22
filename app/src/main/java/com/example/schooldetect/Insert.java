@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.schooldetect.jsonData.JsonDataGetter;
 import com.example.schooldetect.jsonData.JsontoData;
+import com.example.schooldetect.jsonData.LanguageDefiner;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
@@ -32,7 +33,7 @@ public class Insert  extends AppCompatActivity {
     EditText et8;
     Spinner sp3;
     DatabaseHandler db;
-
+    LanguageDefiner ld;
     double X = 0;
     double Y = 0;
 
@@ -49,7 +50,8 @@ public class Insert  extends AppCompatActivity {
         sp3 =  (Spinner)findViewById(R.id.spinner3);
         db = new DatabaseHandler(this);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
-        ArrayList a = db.getType("eng");
+        ld = new LanguageDefiner();
+        ArrayList a = db.getType(ld.definelanguage());
         for (int i = 0; i < a.size(); i++) {
             adapter.add(a.get(i).toString());
         }
@@ -120,6 +122,8 @@ public class Insert  extends AppCompatActivity {
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         // Define a listener that responds to location updates
         // Register the listener with the Location Manager to receive location updates
+        //mobile = network provider
+        //android studio virtual devices = gps provider
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30*1000, 10, locationListener);
     }
     LocationListener locationListener = new LocationListener() {
