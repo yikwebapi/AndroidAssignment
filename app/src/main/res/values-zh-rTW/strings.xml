@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">學校侦查程式</string>
+
+<string name="home">首頁</string>
+<string name="account">帳號</string>
+<string name="password">密碼</string>
+<string name="register">註冊</string>
+<string name="login1">登入</string>
+
+
+<string name="welcome">歡迎</string>
+<string name="Insert">入學校資料</string>
+<string name="Search">查詢學校</string>
+<string name="Location">查詢學校(地圖)</string>
+<string name="Log">過往紀錄</string>
+<string name="Rank">學校排名</string>
+<string name="Logout">登出</string>
+
+
+<string name="searchA">查詢</string>
+
+
+<string name="dname">名字</string>
+<string name="daddress">地址</string>
+<string name="dmark">分數</string>
+<string name="denter">輸入</string>
+
+
+<string name="iename">學校英文名</string>
+<string name="icname">學校中文名</string>
+<string name="ieaddress">學校英文地址</string>
+<string name="icaddress">學校中文地址</string>
+<string name="X">緯度</string>
+<string name="Y">經度</string>
+<string name="ibutton">輸入</string>
+<string name="itype">種類</string>
+
+
+<string name='ldetail'>睇學校舊紀錄</string>
+
+
+<string name='renter'>輸入</string>
+<string name="title_activity_maps">地圖</string>
+
+    <string name="testingonly123">地圖+聲音查詢</string>
+</resources>
