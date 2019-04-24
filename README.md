@@ -1,8 +1,10 @@
 # AndroidAssignment
 
 <h1>Introduction</h1>
-Application Title: School Detector
-Function of Application
+
+**Application Title: School Detector**
+
+**Function of Application**
 
 1.	Register Function
 2.	Login Function
