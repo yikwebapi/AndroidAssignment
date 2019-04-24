@@ -40,10 +40,10 @@ start the app again
 
 **In Android studio emulator/AVD Run the App**
 
-Map.java and mapsound.java  -> startGPS() method -> GPS_PROVIDER (DEFAULT)
+Map.java and mapsound.java and insert.java  -> startGPS() method -> GPS_PROVIDER (DEFAULT)
 
 **In Real Android Device**
 
-Map.java and mapsound.java  -> startGPS() method -> NETWORK_PROVIDER
+Map.java and mapsound.java and insert.java -> startGPS() method -> NETWORK_PROVIDER
 
 
