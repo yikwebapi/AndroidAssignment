@@ -18,27 +18,7 @@
 
 
 <h1>Installation And running </h1>
-Android studio must be 3.4 or newer.
-
-**Window:  Help > Check for Update**
-
-**Mac: Android Studio > Check for Updates**
-
-**If :app:mergeDexDebug Error Occuur** => **change app gradle**
-
-android {
-
-defaultConfig { 
-
-multiDexEnabled true
-
-..
-
-..
-
-}
-
-}
+Android studio must be 3.4 or newer (NEWEST Android STUDIO)
 
 
 **Support**
