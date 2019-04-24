@@ -22,21 +22,28 @@ Android studio must be 3.4 or newer.
 
 
 **Support**
+
 Chinese and English **(change it on Setting-> language & input ->language -> move your target language on the above)**
 
 
 **Software Requirement**
+
 Need have speaker & microphone & internet & GPS
 
 **Permission**
+
 Run the app -> close the app 
+
 **then** open all the permission right of the app (Setting->application->application->SchoolDetect-> location , storage, microphone permission to true)
+
 start the app again
 
 **In Android studio emulator/AVD Run the App**
+
 Map.java and mapsound.java  -> startGPS() method -> GPS_PROVIDER (DEFAULT)
 
 **In Real Android Device**
+
 Map.java and mapsound.java  -> startGPS() method -> NETWORK_PROVIDER
 
 
