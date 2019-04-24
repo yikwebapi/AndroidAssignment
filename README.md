@@ -24,6 +24,22 @@ Android studio must be 3.4 or newer.
 
 **Mac: Android Studio > Check for Updates**
 
+**If :app:mergeDexDebug Error Occuur** => **change app gradle**
+
+android {
+
+defaultConfig { 
+
+multiDexEnabled true
+
+..
+
+..
+
+}
+
+}
+
 
 **Support**
 
