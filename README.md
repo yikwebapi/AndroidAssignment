@@ -18,7 +18,7 @@
 
 
 <h1>Installation And running </h1>
-Android studio must be 3.4 or newer (NEWEST Android STUDIO)
+Android studio must be 3.4 or newer (NEWEST Android studio)
 
 
 **Support**
